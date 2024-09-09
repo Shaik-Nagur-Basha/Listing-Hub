@@ -1,0 +1,129 @@
+<% layout('/layouts/boilerplate') %>
+<script>
+  const mapToken = "<%= process.env.MAP_TOKEN %>";
+  const locationCoordinatesLat = "<%= listing.locationCoordinates[0] %>";
+  const locationCoordinatesLng = "<%= listing.locationCoordinates[1] %>";
+</script>
+<div class="row">
+  <div class="col-6 offset-3 mt-3 mb-0 mediaQuery">
+    <div class="card show-img listing-card" style="width: auto; height: auto">
+      <h4><%= listing.title %></h4>
+      <img
+        src="<%= listing.image.url %>"
+        class="card-img-top mt-2"
+        alt="listing_image"
+        style="width: 24rem; height: 21rem"
+      />
+      <div class="card-body">
+        <p>
+          Owned by&nbsp;<i><b><%= listing.owner.username %></b></i>
+        </p>
+        <p class="card-title pt-4"><%= listing.description %></p>
+        <p class="card-title pt-2">
+          &#8377;&nbsp;<%= listing.price.toLocaleString('en-IN') %>
+        </p>
+        <p class="card-title pt-2"><%= listing.location %></p>
+        <p class="card-title pt-2"><%= listing.country %></p>
+      </div>
+      <% if(currUser && currUser._id.equals(listing.owner._id)) { %>
+      <div class="btns mt-4">
+        <a href="/listings/<%= listing._id %>/edit" class="btn btn-dark add-btn"
+          >Edit</a
+        ><br /><br />
+        <form
+          action="/listings/<%= listing._id %>?_method=DELETE"
+          method="post"
+        >
+          <button class="btn btn-dark">Delete</button>
+        </form>
+      </div>
+      <% } %>
+    </div>
+  </div>
+</div>
+
+<div class="col-6 offset-3 mb-3 mediaQuery">
+  <% if (currUser) { %>
+  <hr />
+  <h5>Leave a Review</h5>
+  <form
+    action="/listings/<%= listing._id %>/reviews"
+    method="post"
+    novalidate
+    class="needs-validation"
+  >
+    <div class="mb-3 mt-3">
+      <label for="rating" class="form-label">Rating </label>
+      <fieldset class="starability-slot">
+        <input
+          type="radio"
+          id="no-rate"
+          class="input-no-rate"
+          name="review[rating]"
+          value="1"
+          checked
+          aria-label="No rating."
+        />
+        <input type="radio" id="first-rate1" name="review[rating]" value="1" />
+        <label for="first-rate1" title="Terrible">1 star</label>
+        <input type="radio" id="first-rate2" name="review[rating]" value="2" />
+        <label for="first-rate2" title="Not good">2 stars</label>
+        <input type="radio" id="first-rate3" name="review[rating]" value="3" />
+        <label for="first-rate3" title="Average">3 stars</label>
+        <input type="radio" id="first-rate4" name="review[rating]" value="4" />
+        <label for="first-rate4" title="Very good">4 stars</label>
+        <input type="radio" id="first-rate5" name="review[rating]" value="5" />
+        <label for="first-rate5" title="Amazing">5 stars</label>
+      </fieldset>
+    </div>
+    <div class="mb-3 mt-3">
+      <label for="comment" class="form-label">Comments </label>
+      <textarea
+        name="review[comment]"
+        id="comment"
+        cols="30"
+        rows="5"
+        class="form-control"
+        required
+      ></textarea>
+      <div class="invalid-feedback">Please add some comments for review</div>
+    </div>
+    <button class="btn btn-outline-dark">Submit</button>
+  </form>
+  <% } %> <% if (listing.reviews.length > 0) { %>
+  <hr />
+  <div class="row">
+    <h4>All Reviews</h4>
+    <% for ( review of listing.reviews ) { %>
+    <div class="card col-5 ms-4 mt-2 mb-2 pt-2 mediaQuery">
+      <div class="card-body">
+        <h5 class="card-title"><%= review.author.username %></h5>
+        <p class="starability-result" data-rating="<%= review.rating %>"></p>
+        <p class="card-text"><%= review.comment %></p>
+      </div>
+      <% if(currUser && currUser._id.equals(review.author._id)) { %>
+      <form
+        method="post"
+        class="mb-3 mt-3"
+        action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE"
+      >
+        <button class="btn btn-sm btn-dark">Delete</button>
+      </form>
+      <% } %>
+    </div>
+    <% } %>
+  </div>
+  <% } %>
+</div>
+<div class="col-8 offset-2 mb-3 mediaQuery">
+  <hr />
+  <h4>Where you'll be</h4>
+  <div
+    id="map"
+    style="height: 400px; width: auto; color: crimson"
+    class="ms-2 mt-3"
+  >
+    Exact location will be provided after booking
+  </div>
+</div>
+<script type="text/javascript" src="/js/map.js"></script>

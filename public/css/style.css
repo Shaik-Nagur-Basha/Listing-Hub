@@ -1,0 +1,179 @@
+body {
+  font-family: "Comfortaa", sans-serif !important;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.container {
+  flex: 1;
+}
+
+.navbar {
+  height: 4.5rem;
+}
+.fa-compass {
+  color: #fe424d;
+  font-size: 2rem;
+}
+
+.nav-link {
+  color: #222222 !important;
+}
+
+footer {
+  background-color: rgba(0, 0, 0, 0.203);
+}
+
+footer > p {
+  text-align: center;
+  margin: auto;
+}
+
+.f-social {
+  text-align: center;
+  margin: auto;
+  padding-top: 7px;
+}
+
+.f-copyright {
+  text-align: center;
+  margin: auto;
+  padding-bottom: 7px;
+}
+.f-copyright > a {
+  text-decoration: none;
+}
+.f-copyright > a:hover {
+  text-decoration: underline;
+}
+
+/* Cards */
+.listing-card {
+  border: none !important;
+  /* margin-bottom: 2rem; */
+}
+
+.card-img-top {
+  border-radius: 1rem !important;
+  width: 100% !important;
+  object-fit: fill !important;
+  /* object-fit: cover !important; */
+}
+
+.card-body {
+  padding: 0 !important;
+}
+
+.card-text p {
+  font-weight: 400;
+}
+
+.listing-link {
+  text-decoration: none;
+  /* padding: 0 0 !important; */
+}
+
+/* Card Effect */
+.card-img-overlay {
+  opacity: 0;
+}
+
+.card-img-overlay:hover {
+  opacity: 0.17;
+  background-color: white;
+}
+
+/* New Page */
+.add-btn {
+  background-color: #fe424d !important;
+  border: none !important;
+}
+
+.show-img > h4 {
+  margin-bottom: 0;
+}
+.show-img > .card-body > * {
+  margin: 0 !important;
+}
+
+.btns {
+  display: flex;
+}
+.btns > a {
+  height: 37.5px;
+  margin-right: 5rem;
+}
+
+/* For Fixed-Top & Fixed-Bottom & Scroll */
+.myMTB {
+  margin: 5rem 0;
+}
+
+/* Navbar bg-Color to White */
+.bg-color-white {
+  background-color: white;
+}
+
+/* For Filters in INdex Page */
+#filters {
+  display: flex;
+  flex-wrap: wrap;
+  /* border: 2px solid black; */
+}
+
+.filter i {
+  font-size: large;
+}
+
+.filter {
+  margin-top: 2rem;
+  margin-right: 2rem;
+  text-align: center;
+  opacity: 0.7;
+}
+
+.filter:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+
+.filter p {
+  font-size: 0.8rem;
+}
+
+.tax-info {
+  display: none;
+}
+
+.tax-toggle {
+  border: 1px solid black;
+  height: 3.5rem;
+  padding: 1rem 1rem;
+  border-radius: 1.1rem;
+  margin-top: 1.2rem;
+  margin-left: 2rem;
+}
+
+.form-check-reverse input,
+.form-check-reverse label:hover {
+  cursor: pointer;
+}
+
+/* For Mobile View */
+@media (max-width: 1081px) {
+  .mediaQuery {
+    width: 83.33333333% !important;
+    margin-left: 8.33333333% !important;
+  }
+  .search-btn {
+    /* display: inline; */
+    margin-right: 0 !important;
+  }
+
+  .search-inp {
+    border-radius: 1.5rem;
+    padding: 0.5rem 2rem !important;
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,95 @@
+<% layout('/layouts/boilerplate') %>
+<div class="row">
+  <div class="col-8 offset-2 mediaQuery">
+    <div class="myFormDiv">
+      <h3 class="mt-1 mb-0">Create new listing</h3>
+      <form
+        action="/listings"
+        method="post"
+        class="newPage needs-validation"
+        novalidate
+        enctype="multipart/form-data"
+      >
+        <div class="mb-1">
+          <label for="title" class="form-label mb-1"><b>Title</b></label>
+          <input
+            type="text"
+            id="title"
+            class="form-control"
+            name="listing[title]"
+            placeholder="Add title"
+            required
+          />
+          <div class="valid-feedback">Title Looks Good!</div>
+          <div class="invalid-feedback">Title should be valid</div>
+        </div>
+        <div class="mb-1">
+          <label for="description" class="form-label mb-1"
+            ><b>Description</b></label
+          >
+          <textarea
+            id="description"
+            class="form-control"
+            name="listing[description]"
+            id="description"
+            placeholder=""
+            required
+          ></textarea>
+          <div class="invalid-feedback">Please enter a short description</div>
+        </div>
+        <div class="mb-4 mt-2">
+          <label for="image" class="form-label mb-1"><b>Upload Image</b></label>
+          <input
+            type="file"
+            id="image"
+            class="form-control"
+            name="listing[image]"
+            required
+          />
+        </div>
+        <div class="row">
+          <div class="mb-1 col-md-4">
+            <label for="price" class="form-label mb-1"><b>Price</b></label>
+            <!-- Price is Must required if not then .toLocaleString('en-IN') Error Occur in index.ejs & show.ejs File's -->
+            <!-- type="number" in below input-->
+            <input
+              id="price"
+              class="form-control"
+              name="listing[price]"
+              placeholder="700"
+              required
+            />
+            <div class="invalid-feedback">Price should be valid</div>
+          </div>
+          <div class="mb-1 col-md-8">
+            <label for="country" class="form-label mb-1"><b>Country</b></label>
+            <input
+              type="text"
+              id="country"
+              class="form-control"
+              name="listing[country]"
+              placeholder="India"
+              required
+            />
+            <div class="invalid-feedback">Country name should be valid</div>
+          </div>
+        </div>
+        <div class="mb-1">
+          <label for="location" class="form-label mb-1"><b>Location</b></label>
+          <input
+            type="text"
+            id="location"
+            class="form-control"
+            name="listing[location]"
+            placeholder="New Delhi"
+            required
+          />
+          <div class="invalid-feedback">Location should be valid</div>
+        </div>
+        <br />
+        <button class="btn btn-dark add-btn">Add</button>
+        <br /><br />
+      </form>
+    </div>
+  </div>
+</div>

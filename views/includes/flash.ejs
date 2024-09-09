@@ -1,0 +1,39 @@
+<% if (success && success.length) { %>
+<script>
+  setTimeout(
+    () => (document.querySelector(".alert-dismissible").style.display = "none"),
+    5000
+  );
+</script>
+<div
+  class="alert alert-success alert-dismissible fade show col-6 offset-3 mediaQuery"
+  role="alert"
+>
+  <%= success %>
+  <button
+    type="button"
+    class="btn-close"
+    data-bs-dismiss="alert"
+    aria-label="Close"
+  ></button>
+</div>
+<% } %> <% if (error && error.length) { %>
+<script>
+  setTimeout(
+    () => (document.querySelector(".alert-dismissible").style.display = "none"),
+    5000
+  );
+</script>
+<div
+  class="alert alert-danger alert-dismissible fade show col-6 offset-3 mediaQuery"
+  role="alert"
+>
+  <%= error %>
+  <button
+    type="button"
+    class="btn-close"
+    data-bs-dismiss="alert"
+    aria-label="Close"
+  ></button>
+</div>
+<% } %>
