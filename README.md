@@ -4,9 +4,7 @@
 
 ## Demo
 
-Check out the live demo of the project here:
-
-[Live Demo](https://listing-hub.onrender.com)
+Check out the live demo of the project here: [Live Demo](https://listing-hub.onrender.com)
 
 ## Features
 
@@ -45,7 +43,7 @@ Check out the live demo of the project here:
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/your-username/listing-hub.git
+   git clone https://github.com/Shaik-Nagur-Basha/listing-hub.git
    ```
 
 2. **Install server dependencies:**
