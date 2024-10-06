@@ -1,6 +1,6 @@
 # Listing-Hub
 
-**Listing-Hub** is a full-stack web application designed to allow users to create, view, and manage listings (products, services, real estate, etc.). It is built using modern web development technologies with a RESTful API architecture and follows the MVC (Model-View-Controller) pattern to ensure a scalable and maintainable codebase.
+**Listing-Hub** is a full-stack web application designed to allow users to create, view, and manage listings (products, services, real estate, etc.). It is built using modern web development technologies with a **RESTful API architecture** and follows the **MVC (Model-View-Controller)** pattern to ensure a scalable and maintainable codebase.
 
 ## Demo
 
